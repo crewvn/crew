@@ -263,7 +263,7 @@ class App extends Component {
                 style={{
                   inlineSize: 250,
                   height: "auto",
-                  wordWrap: "break-word",
+                  // wordWrap: "break-word",
                   width: 350,
                 }}
                 placeholder={"Chọn loại chuyến bay"}
