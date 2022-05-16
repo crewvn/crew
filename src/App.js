@@ -410,7 +410,7 @@ const styles = {
     justifyContent: "center",
   },
   titleTable: {
-    maxWidth: "500px",
+    maxWidth: "300px",
   },
   gioBayContainer: {
     display: "flex",
