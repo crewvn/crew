@@ -14,7 +14,7 @@ const DeliTimePicker = ({ className, onChange, value, ...rest }) => (
     hideDisabledOptions
     minuteStep={1}
     value={value}
-    use12Hours
+    use24Hours
     clearText
     allowEmpty={false}
   />
