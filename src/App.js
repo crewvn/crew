@@ -43,42 +43,35 @@ class App extends Component {
         case "0":
           return parseInt(moment(this.state.time).format("HH")) < 8
             ? moment(this.state.time)
-                .add(7, "hours")
                 .subtract(1, "hours")
                 .subtract(55, "minutes")
                 .format("h:mm a")
             : moment(this.state.time)
-                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(10, "minutes")
                 .format("h:mm a");
         case "1":
           return moment(this.state.time)
-            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(20, "minutes")
             .format("h:mm a");
         case "2":
           return moment(this.state.time)
-            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(20, "minutes")
             .format("h:mm a");
         case "3":
           return parseInt(moment(this.state.time).format("HH")) < 8
             ? moment(this.state.time)
-                .add(7, "hours")
                 .subtract(1, "hours")
                 .subtract(55, "minutes")
                 .format("h:mm a")
             : moment(this.state.time)
-                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(5, "minutes")
                 .format("h:mm a");
         case "4":
           return moment(this.state.time)
-            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(20, "minutes")
             .format("h:mm a");
@@ -90,41 +83,30 @@ class App extends Component {
       switch (type) {
         case "0":
           return parseInt(moment(this.state.time).format("HH")) < 8
-            ? moment(this.state.time)
-                .add(7, "hours")
-                .subtract(2, "hours")
-                .format("h:mm a")
+            ? moment(this.state.time).subtract(2, "hours").format("h:mm a")
             : moment(this.state.time)
-                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(15, "minutes")
                 .format("h:mm a");
         case "1":
           return moment(this.state.time)
-            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(25, "minutes")
             .format("h:mm a");
         case "2":
           return moment(this.state.time)
-            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(25, "minutes")
             .format("h:mm a");
         case "3":
           return parseInt(moment(this.state.time).format("HH")) < 8
-            ? moment(this.state.time)
-                .add(7, "hours")
-                .subtract(2, "hours")
-                .format("h:mm a")
+            ? moment(this.state.time).subtract(2, "hours").format("h:mm a")
             : moment(this.state.time)
-                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(10, "minutes")
                 .format("h:mm a");
         case "4":
           return moment(this.state.time)
-            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(25, "minutes")
             .format("h:mm a");
@@ -139,36 +121,30 @@ class App extends Component {
       case "0":
         return parseInt(moment(this.state.time).format("HH")) < 8
           ? moment(this.state.time)
-              .add(7, "hours")
               .subtract(1, "hours")
               .subtract(30, "minutes")
               .format("h:mm a")
           : moment(this.state.time)
-              .add(7, "hours")
               .subtract(1, "hours")
               .subtract(35, "minutes")
               .format("h:mm a");
       case "1":
         return moment(this.state.time)
-          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(45, "minutes")
           .format("h:mm a");
       case "2":
         return moment(this.state.time)
-          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(45, "minutes")
           .format("h:mm a");
       case "3":
         return moment(this.state.time)
-          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(30, "minutes")
           .format("h:mm a");
       case "4":
         return moment(this.state.time)
-          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(55, "minutes")
           .format("h:mm a");
@@ -196,7 +172,7 @@ class App extends Component {
         key: "2",
       },
       {
-        label: "Nội địa, Quốc tế (Ngắn/Trung/Dài)",
+        label: "Cabin Cargo/ Belly Cargo",
         key: "3",
       },
       {
@@ -212,7 +188,7 @@ class App extends Component {
         key: "type",
       },
       {
-        title: "Giờ (GMT +7)",
+        title: "Giờ (Local time)",
         dataIndex: "time",
         key: "time",
       },
@@ -233,7 +209,7 @@ class App extends Component {
     return (
       <div style={styles.container}>
         <div style={styles.topBar}>
-          <p style={styles.topBarText}>TIME CALCULATOR</p>
+          <p style={styles.topBarText}>TIME CALCULATOR (HAN)</p>
         </div>
         <div style={styles.body}>
           <div style={styles.buttonRow}>
@@ -285,14 +261,24 @@ class App extends Component {
             <div style={styles.timePicker}>
               <p style={styles.gioBayUTC}>✈️ Chọn loại chuyến bay</p>
               <Select
-                style={{ width: "350px" }}
+                showSearch
+                style={{
+                  inlineSize: 250,
+                  height: "auto",
+                  wordWrap: "break-word",
+                  width: 350,
+                }}
                 placeholder={"Chọn loại chuyến bay"}
                 value={this.state.type}
                 onChange={this.onChangeType}
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+                  0
+                }
               >
                 {map(listType, (item) => {
                   return (
-                    <Option key={item.key} value={item.key}>
+                    <Option className="type" key={item.key} value={item.key}>
                       {get(item, "label")}
                     </Option>
                   );
@@ -300,7 +286,7 @@ class App extends Component {
               </Select>
             </div>
             <div style={styles.timePicker}>
-              <p style={styles.gioBayUTC}> ⏰ Chọn giờ bay (UTC)</p>
+              <p style={styles.gioBayUTC}> ⏰ Chọn giờ bay (Local time)</p>
               {/* <TimePicker
                 style={{ width: "120px" }}
                 value={this.state.time}
@@ -323,12 +309,12 @@ class App extends Component {
               />
             </div>
           </div>
-          <div style={styles.gioBayContainer}>
+          {/* <div style={styles.gioBayContainer}>
             <p className="gioBay" style={styles.gioBay}>
-              Giờ bay {moment(this.state.time).add(7, "hours").format("h:mm A")}{" "}
+              Giờ bay {moment(this.state.time).format("h:mm A")}{" "}
               <span style={styles.gmt7}>(GMT +7)</span>
             </p>
-          </div>
+          </div> */}
           <div>
             <p style={styles.titleTable}>
               Lịch chuẩn bị cho{" "}
