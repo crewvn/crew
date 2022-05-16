@@ -187,7 +187,7 @@ class App extends Component {
       },
       {
         label:
-          "Quốc tế tầm trung về ngay (Thời gian bay liên tục 4h <= FT <= 7h, không ký gửi hành lý: ICN, HND về ngay",
+          "Quốc tế tầm trung về ngay (Thời gian bay liên tục 4h <= FT <= 7h, không ký gửi hành lý: ICN, HND về ngay)",
         key: "1",
       },
       {
@@ -324,7 +324,7 @@ class App extends Component {
             </div>
           </div>
           <div style={styles.gioBayContainer}>
-            <p style={styles.gioBay}>
+            <p className="gioBay" style={styles.gioBay}>
               Giờ bay {moment(this.state.time).add(7, "hours").format("h:mm A")}{" "}
               <span style={styles.gmt7}>(GMT +7)</span>
             </p>
@@ -409,11 +409,11 @@ const styles = {
     flexDirection: "column",
     justifyContent: "space-between",
   },
-  gioBay: {
-    fontSize: "26px",
-    fontWeight: "bold",
-    color: "#663399",
-  },
+  // gioBay: {
+  //   fontSize: "26px",
+  //   fontWeight: "bold",
+  //   color: "#663399",
+  // },
   gioBayUTC: {
     fontSize: "18px",
     fontWeight: "bold",
