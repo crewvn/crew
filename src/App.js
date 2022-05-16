@@ -1,10 +1,12 @@
 import "antd/dist/antd.min.css";
 import "./App.css";
 import "./App.less";
-import { Button, Select, TimePicker, Table } from "antd";
+import { Button, Select, Table } from "antd";
 import { get, map } from "lodash";
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import moment from "moment";
+import TimePicker from "rc-time-picker";
+import "rc-time-picker/assets/index.css";
 
 const { Option } = Select;
 
@@ -209,7 +211,7 @@ class App extends Component {
         key: "type",
       },
       {
-        title: "Briefing (GMT +7)",
+        title: "Giờ (GMT +7)",
         dataIndex: "time",
         key: "time",
       },
@@ -222,7 +224,7 @@ class App extends Component {
       },
       {
         key: "2",
-        type: "Giờ họp BRT",
+        type: "Giờ họp BRF",
         time: gioHop,
       },
     ];
@@ -230,7 +232,7 @@ class App extends Component {
     return (
       <div style={styles.container}>
         <div style={styles.topBar}>
-          <p style={styles.topBarText}>Briefing time calculator</p>
+          <p style={styles.topBarText}>TIME CALCULATOR</p>
         </div>
         <div style={styles.body}>
           <div style={styles.buttonRow}>
@@ -298,14 +300,25 @@ class App extends Component {
             </div>
             <div style={styles.timePicker}>
               <p style={styles.gioBayUTC}> ⏰ Chọn giờ bay (UTC)</p>
-              <TimePicker
+              {/* <TimePicker
                 style={{ width: "120px" }}
                 value={this.state.time}
                 use12Hours
-                format="h:mm a"
+                format="h:mm A"
                 onSelect={this.onChangeTime}
                 showNow={false}
                 suffixIcon={false}
+              /> */}
+              <TimePicker
+                style={{ width: "120px" }}
+                className="timePicker"
+                placeholder="Select Time"
+                use12Hours
+                value={this.state.time}
+                showSecond={false}
+                focusOnOpen={true}
+                format="hh:mm A"
+                onChange={this.onChangeTime}
               />
             </div>
           </div>
@@ -340,6 +353,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <p className="footer">❤️ viaHa120</p>
       </div>
     );
   }
