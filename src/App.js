@@ -368,7 +368,7 @@ const styles = {
   },
   topBarText: {
     color: "white",
-    fontSize: "32px",
+    fontSize: "24px",
     fontWeight: "bold",
   },
   button: {
