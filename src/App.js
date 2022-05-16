@@ -259,7 +259,7 @@ class App extends Component {
             <div style={styles.timePicker}>
               <p style={styles.gioBayUTC}>✈️ Chọn loại chuyến bay</p>
               <Select
-                showSearch
+                // showSearch
                 style={{
                   inlineSize: 250,
                   height: "auto",
