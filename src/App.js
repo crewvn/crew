@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       type: "0",
       time: moment(),
-      job: 0,
+      job: 1,
     };
   }
 
@@ -38,16 +38,22 @@ class App extends Component {
     if (job === 0) {
       switch (type) {
         case "0":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(1, "hours")
-            .subtract(55, "minutes")
-            .format("HH:mm");
+          return parseInt(moment(this.state.time).format("HH")) < 8
+            ? moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(1, "hours")
+                .subtract(55, "minutes")
+                .format("HH:mm")
+            : moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(2, "hours")
+                .subtract(10, "minutes")
+                .format("HH:mm");
         case "1":
           return moment(this.state.time)
             .subtract(5, "hours")
             .subtract(2, "hours")
-            .subtract(10, "minutes")
+            .subtract(20, "minutes")
             .format("HH:mm");
         case "2":
           return moment(this.state.time)
@@ -56,24 +62,18 @@ class App extends Component {
             .subtract(20, "minutes")
             .format("HH:mm");
         case "3":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(2, "hours")
-            .subtract(20, "minutes")
-            .format("HH:mm");
+          return parseInt(moment(this.state.time).format("HH")) < 8
+            ? moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(1, "hours")
+                .subtract(55, "minutes")
+                .format("HH:mm")
+            : moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(2, "hours")
+                .subtract(5, "minutes")
+                .format("HH:mm");
         case "4":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(1, "hours")
-            .subtract(55, "minutes")
-            .format("HH:mm");
-        case "5":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(2, "hours")
-            .subtract(5, "minutes")
-            .format("HH:mm");
-        case "6":
           return moment(this.state.time)
             .subtract(5, "hours")
             .subtract(2, "hours")
@@ -86,15 +86,21 @@ class App extends Component {
     if (job === 1) {
       switch (type) {
         case "0":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(2, "hours")
-            .format("HH:mm");
+          return parseInt(moment(this.state.time).format("HH")) < 8
+            ? moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(2, "hours")
+                .format("HH:mm")
+            : moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(2, "hours")
+                .subtract(15, "minutes")
+                .format("HH:mm");
         case "1":
           return moment(this.state.time)
             .subtract(5, "hours")
             .subtract(2, "hours")
-            .subtract(15, "minutes")
+            .subtract(25, "minutes")
             .format("HH:mm");
         case "2":
           return moment(this.state.time)
@@ -103,23 +109,17 @@ class App extends Component {
             .subtract(25, "minutes")
             .format("HH:mm");
         case "3":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(2, "hours")
-            .subtract(25, "minutes")
-            .format("HH:mm");
+          return parseInt(moment(this.state.time).format("HH")) < 8
+            ? moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(2, "hours")
+                .format("HH:mm")
+            : moment(this.state.time)
+                .subtract(5, "hours")
+                .subtract(2, "hours")
+                .subtract(10, "minutes")
+                .format("HH:mm");
         case "4":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(2, "hours")
-            .format("HH:mm");
-        case "5":
-          return moment(this.state.time)
-            .subtract(5, "hours")
-            .subtract(2, "hours")
-            .subtract(10, "minutes")
-            .format("HH:mm");
-        case "6":
           return moment(this.state.time)
             .subtract(5, "hours")
             .subtract(2, "hours")
@@ -134,37 +134,38 @@ class App extends Component {
   gioHop = (type) => {
     switch (type) {
       case "0":
-        return moment(this.state.time)
-          .subtract(1, "hours")
-          .subtract(30, "minutes")
-          .format("HH:mm");
+        return parseInt(moment(this.state.time).format("HH")) < 8
+          ? moment(this.state.time)
+              .subtract(5, "hours")
+              .subtract(1, "hours")
+              .subtract(30, "minutes")
+              .format("HH:mm")
+          : moment(this.state.time)
+              .subtract(5, "hours")
+              .subtract(1, "hours")
+              .subtract(35, "minutes")
+              .format("HH:mm");
       case "1":
         return moment(this.state.time)
+          .subtract(5, "hours")
           .subtract(1, "hours")
-          .subtract(35, "minutes")
+          .subtract(45, "minutes")
           .format("HH:mm");
       case "2":
         return moment(this.state.time)
+          .subtract(5, "hours")
           .subtract(1, "hours")
           .subtract(45, "minutes")
           .format("HH:mm");
       case "3":
         return moment(this.state.time)
+          .subtract(5, "hours")
           .subtract(1, "hours")
-          .subtract(45, "minutes")
+          .subtract(30, "minutes")
           .format("HH:mm");
       case "4":
         return moment(this.state.time)
-          .subtract(1, "hours")
-          .subtract(30, "minutes")
-          .format("HH:mm");
-      case "5":
-        return moment(this.state.time)
-          .subtract(1, "hours")
-          .subtract(30, "minutes")
-          .format("HH:mm");
-      case "6":
-        return moment(this.state.time)
+          .subtract(5, "hours")
           .subtract(1, "hours")
           .subtract(55, "minutes")
           .format("HH:mm");
@@ -178,34 +179,26 @@ class App extends Component {
       gioHop = this.gioHop(type);
     const listType = [
       {
-        label: "Nội địa, quốc tế ngắn (FT<4h) (ETD từ 00h00 đến 07h59)",
+        label: "Nội địa, quốc tế ngắn (FT<4h)",
         key: "0",
-      },
-      {
-        label: "Nội địa, quốc tế ngắn (FT<4h) (ETD từ 08h00 đến 23h59)",
-        key: "1",
       },
       {
         label:
           "Quốc tế tầm trung về ngay (Thời gian bay liên tục 4h <= FT <= 7h, không ký gửi hành lý: ICN, HND về ngay",
-        key: "2",
+        key: "1",
       },
       {
         label:
           "Quốc tế tầm trung, dài (Thời gian bay liên tục FT >= 4h, có ký gửi hành lý)",
+        key: "2",
+      },
+      {
+        label: "Nội địa, Quốc tế (Ngắn/Trung/Dài)",
         key: "3",
       },
       {
-        label: "Nội địa, Quốc tế (Ngắn/Trung/Dài) (ETD từ 00h00 -> 07h59)",
-        key: "4",
-      },
-      {
-        label: "Nội địa, Quốc tế (Ngắn/Trung/Dài) (ETD từ 08h00 -> 23h59)",
-        key: "5",
-      },
-      {
         label: "Chuyên cơ nội địa kết hợp chở khách",
-        key: "6",
+        key: "4",
       },
     ];
 
