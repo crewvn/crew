@@ -158,7 +158,7 @@ class App extends Component {
       gioHop = this.gioHop(type);
     const listType = [
       {
-        label: "Nội địa, quốc tế ngắn (FT<4h)",
+        label: "Nội địa, quốc tế ngắn (FT < 4h)",
         key: "0",
       },
       {
