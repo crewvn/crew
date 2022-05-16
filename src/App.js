@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   onChangeTime = (time, timeString) => {
-    console.log(moment(time).format("HH:mm:ss"));
+    console.log(moment(time).format("h:mm a:ss"));
     this.setState({ time });
   };
 
@@ -40,45 +40,45 @@ class App extends Component {
         case "0":
           return parseInt(moment(this.state.time).format("HH")) < 8
             ? moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(1, "hours")
                 .subtract(55, "minutes")
-                .format("HH:mm")
+                .format("h:mm a")
             : moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(10, "minutes")
-                .format("HH:mm");
+                .format("h:mm a");
         case "1":
           return moment(this.state.time)
-            .subtract(5, "hours")
+            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(20, "minutes")
-            .format("HH:mm");
+            .format("h:mm a");
         case "2":
           return moment(this.state.time)
-            .subtract(5, "hours")
+            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(20, "minutes")
-            .format("HH:mm");
+            .format("h:mm a");
         case "3":
           return parseInt(moment(this.state.time).format("HH")) < 8
             ? moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(1, "hours")
                 .subtract(55, "minutes")
-                .format("HH:mm")
+                .format("h:mm a")
             : moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(5, "minutes")
-                .format("HH:mm");
+                .format("h:mm a");
         case "4":
           return moment(this.state.time)
-            .subtract(5, "hours")
+            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(20, "minutes")
-            .format("HH:mm");
+            .format("h:mm a");
         default:
           break;
       }
@@ -88,43 +88,43 @@ class App extends Component {
         case "0":
           return parseInt(moment(this.state.time).format("HH")) < 8
             ? moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(2, "hours")
-                .format("HH:mm")
+                .format("h:mm a")
             : moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(15, "minutes")
-                .format("HH:mm");
+                .format("h:mm a");
         case "1":
           return moment(this.state.time)
-            .subtract(5, "hours")
+            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(25, "minutes")
-            .format("HH:mm");
+            .format("h:mm a");
         case "2":
           return moment(this.state.time)
-            .subtract(5, "hours")
+            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(25, "minutes")
-            .format("HH:mm");
+            .format("h:mm a");
         case "3":
           return parseInt(moment(this.state.time).format("HH")) < 8
             ? moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(2, "hours")
-                .format("HH:mm")
+                .format("h:mm a")
             : moment(this.state.time)
-                .subtract(5, "hours")
+                .add(7, "hours")
                 .subtract(2, "hours")
                 .subtract(10, "minutes")
-                .format("HH:mm");
+                .format("h:mm a");
         case "4":
           return moment(this.state.time)
-            .subtract(5, "hours")
+            .add(7, "hours")
             .subtract(2, "hours")
             .subtract(25, "minutes")
-            .format("HH:mm");
+            .format("h:mm a");
         default:
           break;
       }
@@ -136,39 +136,39 @@ class App extends Component {
       case "0":
         return parseInt(moment(this.state.time).format("HH")) < 8
           ? moment(this.state.time)
-              .subtract(5, "hours")
+              .add(7, "hours")
               .subtract(1, "hours")
               .subtract(30, "minutes")
-              .format("HH:mm")
+              .format("h:mm a")
           : moment(this.state.time)
-              .subtract(5, "hours")
+              .add(7, "hours")
               .subtract(1, "hours")
               .subtract(35, "minutes")
-              .format("HH:mm");
+              .format("h:mm a");
       case "1":
         return moment(this.state.time)
-          .subtract(5, "hours")
+          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(45, "minutes")
-          .format("HH:mm");
+          .format("h:mm a");
       case "2":
         return moment(this.state.time)
-          .subtract(5, "hours")
+          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(45, "minutes")
-          .format("HH:mm");
+          .format("h:mm a");
       case "3":
         return moment(this.state.time)
-          .subtract(5, "hours")
+          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(30, "minutes")
-          .format("HH:mm");
+          .format("h:mm a");
       case "4":
         return moment(this.state.time)
-          .subtract(5, "hours")
+          .add(7, "hours")
           .subtract(1, "hours")
           .subtract(55, "minutes")
-          .format("HH:mm");
+          .format("h:mm a");
       default:
         break;
     }
@@ -311,8 +311,7 @@ class App extends Component {
           </div>
           <div style={styles.gioBayContainer}>
             <p style={styles.gioBay}>
-              Giờ bay{" "}
-              {moment(this.state.time).subtract(5, "hours").format("HH:mm")}{" "}
+              Giờ bay {moment(this.state.time).add(7, "hours").format("h:mm A")}{" "}
               <span style={styles.gmt7}>(GMT +7)</span>
             </p>
           </div>
