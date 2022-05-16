@@ -3,12 +3,12 @@ import TimePicker from "./TimePicker";
 
 const StyledTimePicker = styled(TimePicker)`
   & .rc-time-picker-panel-select-option-selected {
-    background-color: #663399;
+    background-color: #0f1e7d;
     font-weight: normal;
     color: white;
   }
   & .rc-time-picker-panel-select-option-selected:hover {
-    background-color: #663399;
+    background-color: #0f1e7d;
     font-weight: normal;
     color: white;
   }
@@ -29,7 +29,7 @@ const StyledTimePicker = styled(TimePicker)`
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
-    border-bottom: 1px solid #663399;
+    border-bottom: 1px solid #0f1e7d;
     ::-webkit-scrollbar {
       width: 0;
       height: 0;

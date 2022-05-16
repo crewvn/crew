@@ -24,6 +24,10 @@
   word-break: break-all;
 }
 
+.ant-select-item-option-content {
+  white-space: break-spaces;
+  word-break: break-word;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -33,14 +37,14 @@
 .gioBay {
   font-size: 26px;
   font-weight: bold;
-  color: #663399;
+  color: #0f1e7d;
 }
 
 /* @media screen and (max-width: 46.1875em) {
   .gioBay {
     font-size: 20px;
     font-weight: bold;
-    color: #663399;
+    color: #0f1e7d;
   }
 } */
 
@@ -56,7 +60,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #0f1e7d;
 }
 
 .timePicker {

@@ -162,13 +162,11 @@ class App extends Component {
         key: "0",
       },
       {
-        label:
-          "Quốc tế tầm trung về ngay (Thời gian bay liên tục 4h <= FT <= 7h, không ký gửi hành lý: ICN, HND về ngay)",
+        label: "Quốc tế tầm trung về ngay (4h ≤ FT ≤ 7h, không ký gửi)",
         key: "1",
       },
       {
-        label:
-          "Quốc tế tầm trung, dài (Thời gian bay liên tục FT >= 4h, có ký gửi hành lý)",
+        label: "Quốc tế tầm trung, dài (FT ≥ 4h, có ký gửi)",
         key: "2",
       },
       {
@@ -188,7 +186,7 @@ class App extends Component {
         key: "type",
       },
       {
-        title: "Giờ (Local time)",
+        title: "Giờ (Local Time)",
         dataIndex: "time",
         key: "time",
       },
@@ -286,7 +284,7 @@ class App extends Component {
               </Select>
             </div>
             <div style={styles.timePicker}>
-              <p style={styles.gioBayUTC}> ⏰ Chọn giờ bay (Local time)</p>
+              <p style={styles.gioBayUTC}> ⏰ Chọn giờ bay (Local Time)</p>
               {/* <TimePicker
                 style={{ width: "120px" }}
                 value={this.state.time}
@@ -361,7 +359,7 @@ const styles = {
   topBar: {
     width: "100%",
     paddingTop: "20px",
-    backgroundColor: "#663399",
+    backgroundColor: "#0f1e7d",
     marginBottom: "20px",
     display: "flex",
     justifyContent: "center",
@@ -377,7 +375,7 @@ const styles = {
     borderWidth: "1px",
   },
   activeButton: {
-    borderColor: "#663399",
+    borderColor: "#0f1e7d",
     backgroundColor: "white",
     borderWidth: "1px",
   },
@@ -386,7 +384,7 @@ const styles = {
     fontFamily: "san-serif",
   },
   textButtonActive: {
-    color: "#663399",
+    color: "#0f1e7d",
     fontFamily: "san-serif",
   },
   row: {
@@ -398,12 +396,12 @@ const styles = {
   // gioBay: {
   //   fontSize: "26px",
   //   fontWeight: "bold",
-  //   color: "#663399",
+  //   color: "#0f1e7d",
   // },
   gioBayUTC: {
     fontSize: "18px",
     fontWeight: "bold",
-    color: "#663399",
+    color: "#0f1e7d",
   },
   buttonRow: {
     display: "flex",
