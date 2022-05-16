@@ -162,11 +162,11 @@ class App extends Component {
         key: "0",
       },
       {
-        label: "Quốc tế tầm trung về ngay (4h ≤ FT ≤ 7h, không ký gửi)",
+        label: `Quốc tế tầm trung về ngay \n(4h ≤ FT ≤ 7h, không ký gửi)`,
         key: "1",
       },
       {
-        label: "Quốc tế tầm trung, dài (FT ≥ 4h, có ký gửi)",
+        label: "Quốc tế tầm trung, dài \n(FT ≥ 4h, có ký gửi)",
         key: "2",
       },
       {
