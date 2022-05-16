@@ -5,8 +5,9 @@ import { Button, Select, Table } from "antd";
 import { get, map } from "lodash";
 import React, { Component, Fragment } from "react";
 import moment from "moment";
-import TimePicker from "rc-time-picker";
+// import TimePicker from "rc-time-picker";
 import "rc-time-picker/assets/index.css";
+import TimePicker from "./TimePicker";
 
 const { Option } = Select;
 
