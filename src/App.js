@@ -303,7 +303,9 @@ class App extends Component {
                 value={this.state.time}
                 use12Hours
                 format="h:mm a"
-                onChange={this.onChangeTime}
+                onSelect={this.onChangeTime}
+                showNow={false}
+                suffixIcon={false}
               />
             </div>
           </div>
