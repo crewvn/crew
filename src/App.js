@@ -22,6 +22,12 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    document
+      .getElementsByClassName("ant-select-selection-search-input")[0]
+      .setAttribute("readonly", true);
+  }
+
   onChangeType = (value) => {
     this.setState({
       type: value,
@@ -505,11 +511,9 @@ class App extends Component {
               <p style={styles.gioBayUTC}>✈️ Chọn loại chuyến bay</p>
               <Select
                 showSearch
-                readonly
                 style={{
                   inlineSize: "250",
                   height: "auto",
-                  wordWrap: "break-word",
                   width: 350,
                 }}
                 placeholder={"Chọn loại chuyến bay"}
@@ -517,7 +521,6 @@ class App extends Component {
                 onDropdownVisibleChange={(a) => {
                   if (a == true) {
                     document.body.style.overflow = "hidden";
-                    document.activeElement.blur();
                   }
                   if (a == false) {
                     document.body.style.overflow = "auto";
