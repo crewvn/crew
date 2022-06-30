@@ -37,6 +37,7 @@ body::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

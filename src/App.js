@@ -334,19 +334,19 @@ class App extends Component {
               key: "4",
             },
             {
-              label: "Quốc tế tầm trung về ngay (4h <= FT <= 7h, không ký gửi)",
+              label: "Quốc tế tầm trung về ngay \n(4h ≤ FT ≤ 7h, không ký gửi)",
               key: "5",
             },
             {
-              label: "Quốc tế tầm trung (4h <= FT <= 7h)",
+              label: "Quốc tế tầm trung (4h ≤ FT ≤ 7h)",
               key: "6",
             },
             {
-              label: "Quốc tế dài (FT >= 7h, Âu, Úc)",
+              label: "Quốc tế dài (FT ≥ 7h, Âu, Úc)",
               key: "7",
             },
             {
-              label: "Quốc tế dài (FT >= 7h, Mỹ)",
+              label: "Quốc tế dài (FT ≥ 7h, Mỹ)",
               key: "8",
             },
             {
@@ -399,7 +399,7 @@ class App extends Component {
           ];
 
     return (
-      <div style={styles.container}>
+      <div className="container" style={styles.container}>
         <div style={styles.topBar}>
           <p style={styles.topBarText}>TIME CALCULATOR</p>
         </div>
@@ -512,15 +512,18 @@ class App extends Component {
               <Select
                 showSearch
                 style={{
-                  inlineSize: "250",
+                  // inlineSize: "200",
                   height: "auto",
-                  width: 350,
+                  width: 340,
                 }}
                 placeholder={"Chọn loại chuyến bay"}
                 value={this.state.type}
                 onDropdownVisibleChange={(a) => {
                   if (a == true) {
                     document.body.style.overflow = "hidden";
+                    document.getElementsByClassName(
+                      "container"
+                    )[0].style.overflow = "hidden";
                   }
                   if (a == false) {
                     document.body.style.overflow = "auto";
@@ -535,7 +538,15 @@ class App extends Component {
                 {map(listType, (item) => {
                   return (
                     <Option className="type" key={item.key} value={item.key}>
-                      {get(item, "label")}
+                      {get(item, "label") ===
+                      "Quốc tế tầm trung về ngay \n(4h ≤ FT ≤ 7h, không ký gửi)" ? (
+                        <p>
+                          Quốc tế tầm trung về ngay <br></br>(4h ≤ FT ≤ 7h,
+                          không ký gửi)
+                        </p>
+                      ) : (
+                        get(item, "label")
+                      )}
                     </Option>
                   );
                 })}
