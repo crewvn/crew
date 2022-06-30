@@ -284,6 +284,15 @@ class App extends Component {
       }
     }
   };
+
+  onDropDownChange = (isDropdown) => {
+    if (isDropdown) {
+      document.body.style.overflow = "hidden";
+      document.getElementsByClassName("container")[0].style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  };
   render() {
     const { type, job, base } = this.state;
     let gioXeDon = this.gioXeDon(type, job, base),
@@ -515,20 +524,12 @@ class App extends Component {
                   // inlineSize: "200",
                   height: "auto",
                   width: 340,
+                  padding: "0px",
+                  margin: "0px",
                 }}
                 placeholder={"Chọn loại chuyến bay"}
                 value={this.state.type}
-                onDropdownVisibleChange={(a) => {
-                  if (a == true) {
-                    document.body.style.overflow = "hidden";
-                    document.getElementsByClassName(
-                      "container"
-                    )[0].style.overflow = "hidden";
-                  }
-                  if (a == false) {
-                    document.body.style.overflow = "auto";
-                  }
-                }}
+                onDropdownVisibleChange={this.onDropDownChange}
                 onChange={this.onChangeType}
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
@@ -540,7 +541,13 @@ class App extends Component {
                     <Option className="type" key={item.key} value={item.key}>
                       {get(item, "label") ===
                       "Quốc tế tầm trung về ngay \n(4h ≤ FT ≤ 7h, không ký gửi)" ? (
-                        <p>
+                        <p
+                          style={{
+                            padding: "0px",
+                            margin: "0px",
+                            lineHeight: "auto",
+                          }}
+                        >
                           Quốc tế tầm trung về ngay <br></br>(4h ≤ FT ≤ 7h,
                           không ký gửi)
                         </p>
