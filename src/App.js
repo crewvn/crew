@@ -513,6 +513,15 @@ class App extends Component {
                 }}
                 placeholder={"Chọn loại chuyến bay"}
                 value={this.state.type}
+                onDropdownVisibleChange={(a) => {
+                  console.log("aaa", a);
+                  if (a == true) {
+                    document.body.style.overflow = "hidden";
+                  }
+                  if (a == false) {
+                    document.body.style.overflow = "auto";
+                  }
+                }}
                 onChange={this.onChangeType}
                 filterOption={(input, option) =>
                   option.children.toLowerCase().indexOf(input.toLowerCase()) >=
