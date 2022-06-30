@@ -29,7 +29,7 @@ class App extends Component {
   };
 
   onChangeTime = (time, timeString) => {
-    console.log(moment(time).format("HH:MM"));
+    // console.log(moment(time).format("HH:MM"));
     this.setState({ time });
   };
 
@@ -514,7 +514,6 @@ class App extends Component {
                 placeholder={"Chọn loại chuyến bay"}
                 value={this.state.type}
                 onDropdownVisibleChange={(a) => {
-                  console.log("aaa", a);
                   if (a == true) {
                     document.body.style.overflow = "hidden";
                   }
