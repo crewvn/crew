@@ -616,7 +616,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <p className="footer">Nice flight ✈️ viaHa120</p>
+        <p className="footer">Nice flight ✈️ via Ha120</p>
       </div>
     );
   }
