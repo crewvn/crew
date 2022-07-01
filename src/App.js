@@ -132,13 +132,19 @@ class App extends Component {
     } else if (base === "SGN") {
       switch (type) {
         case "0":
-          return moment(this.state.time).subtract(1, "hours").format("HH:mm");
-        case "1":
-          return moment(this.state.time).subtract(1, "hours").format("HH:mm");
-        case "2":
           return moment(this.state.time)
             .subtract(1, "hours")
             .subtract(10, "minutes")
+            .format("HH:mm");
+        case "1":
+          return moment(this.state.time)
+            .subtract(1, "hours")
+            .subtract(20, "minutes")
+            .format("HH:mm");
+        case "2":
+          return moment(this.state.time)
+            .subtract(1, "hours")
+            .subtract(20, "minutes")
             .format("HH:mm");
         case "3":
           return moment(this.state.time)
@@ -148,22 +154,22 @@ class App extends Component {
         case "4":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(20, "minutes")
+            .subtract(30, "minutes")
             .format("HH:mm");
         case "5":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(20, "minutes")
+            .subtract(40, "minutes")
             .format("HH:mm");
         case "6":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(30, "minutes")
+            .subtract(45, "minutes")
             .format("HH:mm");
         case "7":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(40, "minutes")
+            .subtract(10, "minutes")
             .format("HH:mm");
         case "8":
           return moment(this.state.time)
@@ -171,15 +177,9 @@ class App extends Component {
             .subtract(45, "minutes")
             .format("HH:mm");
         case "9":
-          return moment(this.state.time)
-            .subtract(1, "hours")
-            .subtract(10, "minutes")
-            .format("HH:mm");
+          return moment(this.state.time).subtract(1, "hours").format("HH:mm");
         case "10":
-          return moment(this.state.time)
-            .subtract(1, "hours")
-            .subtract(45, "minutes")
-            .format("HH:mm");
+          return moment(this.state.time).subtract(1, "hours").format("HH:mm");
         default:
           break;
       }
@@ -227,57 +227,57 @@ class App extends Component {
         case "0":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(15, "minutes")
+            .subtract(30, "minutes")
             .format("HH:mm");
         case "1":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(25, "minutes")
+            .subtract(40, "minutes")
             .format("HH:mm");
         case "2":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(30, "minutes")
+            .subtract(40, "minutes")
             .format("HH:mm");
         case "3":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(40, "minutes")
+            .subtract(45, "minutes")
             .format("HH:mm");
         case "4":
           return moment(this.state.time)
             .subtract(1, "hours")
-            .subtract(40, "minutes")
-            .format("HH:mm");
-        case "5":
-          return moment(this.state.time)
-            .subtract(1, "hours")
-            .subtract(45, "minutes")
-            .format("HH:mm");
-        case "6":
-          return moment(this.state.time)
-            .subtract(1, "hours")
             .subtract(55, "minutes")
             .format("HH:mm");
-        case "7":
+        case "5":
           return moment(this.state.time)
             .subtract(2, "hours")
             .subtract(5, "minutes")
             .format("HH:mm");
-        case "8":
+        case "6":
           return moment(this.state.time)
             .subtract(2, "hours")
             .subtract(10, "minutes")
             .format("HH:mm");
-        case "9":
+        case "7":
           return moment(this.state.time)
             .subtract(1, "hours")
             .subtract(25, "minutes")
             .format("HH:mm");
-        case "10":
+        case "8":
           return moment(this.state.time)
             .subtract(2, "hours")
             .subtract(5, "minutes")
+            .format("HH:mm");
+        case "9":
+          return moment(this.state.time)
+            .subtract(1, "hours")
+            .subtract(15, "minutes")
+            .format("HH:mm");
+        case "10":
+          return moment(this.state.time)
+            .subtract(1, "hours")
+            .subtract(25, "minutes")
             .format("HH:mm");
         default:
           break;
@@ -323,47 +323,47 @@ class App extends Component {
           ]
         : [
             {
-              label: "Nội địa (ATR72)",
+              label: "Nội địa (B787, A350, A321)",
               key: "0",
             },
             {
-              label: `Quốc tế (ATR72)`,
+              label: "Nội địa nối tiếp quốc tế tầm trung, dài có ký gửi",
               key: "1",
             },
             {
-              label: "Nội địa (B787, A350, A321)",
+              label: "Quốc tế ngắn (B787, A350, A321), FT<4h",
               key: "2",
             },
             {
-              label: "Nội địa nối tiếp quốc tế tầm trung, dài có ký gửi",
+              label: "Quốc tế tầm trung về ngay \n(4h ≤ FT ≤ 7h, không ký gửi)",
               key: "3",
             },
             {
-              label: "Quốc tế ngắn (B787, A350, A321), FT<4h",
+              label: "Quốc tế tầm trung (4h ≤ FT ≤ 7h)",
               key: "4",
             },
             {
-              label: "Quốc tế tầm trung về ngay \n(4h ≤ FT ≤ 7h, không ký gửi)",
+              label: "Quốc tế dài (FT ≥ 7h, Âu, Úc)",
               key: "5",
             },
             {
-              label: "Quốc tế tầm trung (4h ≤ FT ≤ 7h)",
+              label: "Quốc tế dài (FT ≥ 7h, Mỹ)",
               key: "6",
             },
             {
-              label: "Quốc tế dài (FT ≥ 7h, Âu, Úc)",
+              label: "Cabin, Cargo, Belly Cargo",
               key: "7",
             },
             {
-              label: "Quốc tế dài (FT ≥ 7h, Mỹ)",
+              label: "Chuyên cơ",
               key: "8",
             },
             {
-              label: "Cabin, Cargo, Belly Cargo",
+              label: "Nội địa (ATR72)",
               key: "9",
             },
             {
-              label: "Chuyên cơ",
+              label: `Quốc tế (ATR72)`,
               key: "10",
             },
           ];
