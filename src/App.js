@@ -351,7 +351,7 @@ class App extends Component {
               key: "6",
             },
             {
-              label: "Cabin, Cargo, Belly Cargo",
+              label: "Cabin Cargo/ Belly Cargo",
               key: "7",
             },
             {
